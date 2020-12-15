@@ -3,7 +3,12 @@ import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import CommentService from "../../service/service-comment/CommentService";
 import Comment from "./Comment";
+
+import "./StyleComment.css";
+
+
 import FullComments from "../full-comments/FullComments";
+
 class Comments extends Component {
   state = { comment: [] };
 
@@ -23,6 +28,7 @@ class Comments extends Component {
       <div>
           
         <hr />
+        <div className = "fullComments">
         <Switch>
           <Route
             path={url + "/:id"}
@@ -34,8 +40,9 @@ class Comments extends Component {
               } = props;
               return <FullComments commentId={id} key={id} />;
             }}
-          ></Route>
+            ></Route>
         </Switch>
+            </div>
         <hr />
 
         {comment.map((value) => (
